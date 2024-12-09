@@ -49,8 +49,8 @@ function tsp_hk(distance_matrix) {
                 newCities.push(cities[j]);
             }
             let dis = matrix[city][cities[i]] + heldKarpEq(cities[i], newCities, matrix, cityList);
-            if (minDistance > distance) { 
-                minDistance = distance; 
+            if (minDistance > dis) { 
+                minDistance = dis; 
             }
         }
         cityList[key] = minDistance;
