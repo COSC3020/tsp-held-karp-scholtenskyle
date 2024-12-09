@@ -9,7 +9,7 @@ function tsp_hk(distance_matrix) {
         if (mask === (1 << n) -1){
             return 0;
         }
-        if (mem[pos][mask] != undefined){
+        if (mem[pos][mask] !== undefined){
             return mem[pos][mask];
         }
         let minCost = Infinity; 
