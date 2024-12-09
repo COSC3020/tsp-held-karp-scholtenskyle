@@ -29,7 +29,7 @@ function tsp_hk(distance_matrix) {
         return cityList[key]; 
     }
     if (cityNum == 2) {
-        for (let i = 0; i < size; i++) {
+        for (let i = 0; i < cityNum; i++) {
             if (cities[i] != city) {
                 cityList[key] = matrix[city][cities[i]];
                 return cityList[key];
@@ -37,7 +37,7 @@ function tsp_hk(distance_matrix) {
         }
     } else { 
         let minDistance = Infinity;
-        for (let i = 0; i < size; i++) {
+        for (let i = 0; i < cityNum; i++) {
             if (cities[i] == city) { 
                 continue; 
             }
