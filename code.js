@@ -6,10 +6,10 @@ function tsp_hk(distance_matrix) {
     const mem = Array.from({ length: n }, () => ({}));
 
     function heldKarpEq(mask, pos) {
-        if (mask === (1 << n) -1){
+        if (mask == (1 << n) -1){
             return 0;
         }
-        if (mem[pos][mask] !== undefined){
+        if (mem[pos][mask] != undefined){
             return mem[pos][mask];
         }
         let minCost = Infinity; 
@@ -24,7 +24,7 @@ function tsp_hk(distance_matrix) {
         mem[pos][mask] = minCost;
         return minCost;
     }
-    let result = 0; 
+    let result = Infinity; 
     for (let start = 0; start < n; start++) {
         result = Math.min(result, heldKarpEq(1 << start, start));
     }
