@@ -5,28 +5,23 @@ function tsp_hk(distance_matrix) {
     }
     const mem = Array.from({ length: n }, () => ({}));
 
-    function heldKarpEq(mask, pos) {
-        if (mask == (1 << n) -1){
+    function heldKarpEq(set, pos) {
+        if (set.size == 0){
             return 0;
         }
-        if (mem[pos][mask] != undefined){
-            return mem[pos][mask];
+        if (mem[pos][set] != undefined){
+            return mem[pos][set];
         }
-        let minCost = Infinity; 
-        for (let nxt = 0; nxt < n; nxt++){
-            if (mask & (1 << nxt)){
-                continue;
-            } 
-            const newMask = mask | (1 << nxt);
-            const cost = distance_matrix[pos][nxt] + heldKarpEq(newMask, nxt);
+        let minCost = Infinity;
+            const cost = distance_matrix[pos][nxt] + heldKarpEq(set, nxt);
             minCost = Math.min(minCost, cost);
         }
-        mem[pos][mask] = minCost;
+        mem[pos][set] = minCost;
         return minCost;
     }
     let result = Infinity; 
     for (let start = 0; start < n; start++) {
-        result = Math.min(result, heldKarpEq(1 << start, start));
+        result = Math.min(result, heldKarpEq(set, start));
     }
     return result;
 }
