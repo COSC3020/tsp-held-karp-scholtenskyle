@@ -1,4 +1,4 @@
-function tsp_hk(distance_matrix) {
+qfunction tsp_hk(distance_matrix) {
     const n = distance_matrix.length;
     if ((n == 0) || (n == 1)) {
         return 0;
@@ -26,7 +26,7 @@ function tsp_hk(distance_matrix) {
     }
     let result = 0; 
     for (let start = 0; start < n; start++) {
-        result = Math.min(result, heldKarp(1 << start, start));
+        result = Math.min(result, heldKarpEq(1 << start, start));
     }
     return result;
 }
