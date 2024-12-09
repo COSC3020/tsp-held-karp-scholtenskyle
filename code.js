@@ -6,7 +6,7 @@ function tsp_hk(distance_matrix) {
     const mem = Array.from({ length: n }, () => ({}));
 
     function heldKarpEq(mask, pos) {
-        if (mask == (1 << n) -1){
+        if (mask === (1 << n) -1){
             return 0;
         }
         if (mem[pos][mask] != undefined){
