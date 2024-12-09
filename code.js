@@ -5,23 +5,39 @@ function tsp_hk(distance_matrix) {
     }
     const mem = Array.from({ length: n }, () => ({}));
 
-    function heldKarpEq(set, pos) {
-        if (set.size == 0){
-            return 0;
-        }
-        if (mem[pos][set] != undefined){
-            return mem[pos][set];
-        }
-        let minCost = Infinity;
-            const cost = distance_matrix[pos][nxt] + heldKarpEq(set, nxt);
-            minCost = Math.min(minCost, cost);
-        }
-        mem[pos][set] = minCost;
-        return minCost;
+    function heldKarp(city, cities, matrix, citylist) {
+    let cityNum = cities.length;
+    let key = JSON.stringify([city, cities]);
+    if (citylist[key] != undefined) {
+        return cityList[key]; 
     }
-    let result = Infinity; 
-    for (let start = 0; start < n; start++) {
-        result = Math.min(result, heldKarpEq(set, start));
+    if (cityNum == 2) {
+        for (let i = 0; i < size; i++) {
+            if (cities[i] != city) {
+                cityList[key] = matrix[city][cities[i]];
+                return cityList[key];
+            }
+        }
+    } else { 
+        let minDistance = Infinity;
+        for (let i = 0; i < size; i++) {
+            if (cities[i] == city) { 
+                continue; 
+            }
+            let newCities = [];
+            for (let j = 0; j < size; j++) {
+                if (cities[j] == city) { 
+                    continue; 
+                }
+                newCities.push(cities[j]);
+            }
+            let dis = matrix[city][cities[i]] + heldKarp(cities[i], newCities, matrix, cityList);
+            if (minDistance > distance) { 
+                minDistance = distance; 
+            }
+        }
+        cityList[key] = minDistance;
+        return minDistance;
     }
-    return result;
+}
 }
