@@ -6,7 +6,7 @@ function tsp_hk(distance_matrix) {
         return 0;
     }
     const mem = Array.from({ length: n }, () => ({}));
-    for (let i = 0; i < size; i++) {
+    for (let i = 0; i < n; i++) {
         let cities = [];
 
         // Fill array with the all cities
