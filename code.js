@@ -42,7 +42,7 @@ function tsp_hk(distance_matrix) {
                 continue; 
             }
             let newCities = [];
-            for (let j = 0; j < size; j++) {
+            for (let j = 0; j < cityNum; j++) {
                 if (cities[j] == city) { 
                     continue; 
                 }
