@@ -1,4 +1,4 @@
-qfunction tsp_hk(distance_matrix) {
+function tsp_hk(distance_matrix) {
     const n = distance_matrix.length;
     if ((n == 0) || (n == 1)) {
         return 0;
