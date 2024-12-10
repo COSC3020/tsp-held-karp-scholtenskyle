@@ -46,3 +46,15 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
+
+The time complexity would be $$O(n * 2^n)$$. This is because there are $$2^n$$ subsets, along with n number of cities within each subset. The memory complexity would be $$O(n * 2^n)$$ as well. This is because the memoization table uses n amount of rows, with $$2^n$$ values per row. In this case, the use of the stacks is insignificant in comparison to the memoization table. So in conclusion, both complexities come out to $$O(n * 2^n)$$. Those stacks really don't take much to run properly, and don't contribute enough to the complexity to make it any different.
+
+For each subset, the minimum distance between each city is found. This is then used as needed to find the total distance for a specific route, by adding these specific distances together.
+
+https://medium.com/@data-overload/unveiling-the-held-karp-algorithm-revolutionizing-the-traveling-salesman-problem-9fb45b4cf58d
+
+https://medium.com/@davidlfliang/intro-python-algorithms-traveling-salesman-problem-ffa61f0bd47b
+
+I used the sources above just to better understand the problem, and what we were actually trying to solve for.
+
+I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
